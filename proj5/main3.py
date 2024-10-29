@@ -1,11 +1,14 @@
+# STEP1 필요한 모델 임포트 
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from transformers import pipeline, BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 import requests
 import io
-
+ 
 app = FastAPI()
+
 
 # 이미지 캡셔닝 모델과 감정 분석 모델 초기화
 caption_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -15,6 +18,7 @@ emotion_classifier = pipeline("sentiment-analysis", model="michellejieli/emotion
 # 요청 데이터 모델 정의
 class ImageRequest(BaseModel):
     url: str
+
 
 # 이미지 감정 분석 엔드포인트
 @app.post("/analyze-image-sentiment/")
