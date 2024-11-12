@@ -1,0 +1,15 @@
+# Python 캐시 및 컴파일된 파일 무시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+/dist
+/build
+dist/
+build/
+
+
+
+# 환경 설정 파일 무시
+.env
+
